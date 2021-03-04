@@ -3,7 +3,7 @@ import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeor
 @Entity("users")
 class User{
 
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     id:number;
 
     @Column()

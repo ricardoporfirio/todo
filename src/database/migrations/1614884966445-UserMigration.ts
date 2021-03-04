@@ -9,7 +9,9 @@ export class UserMigration1614884966445 implements MigrationInterface {
                 {
                     name:"id",
                     type:"integer",
-                    isPrimary:true
+                    isPrimary:true,
+                    isGenerated:true,
+                    generationStrategy:'increment'
                 },
                 {
                     name:"name",
@@ -30,7 +32,8 @@ export class UserMigration1614884966445 implements MigrationInterface {
                 },
                 {
                     name:"updated_at",
-                    type:"timestamp"
+                    type:"timestamp",
+                    isNullable:true
                 },
             ]
         }))

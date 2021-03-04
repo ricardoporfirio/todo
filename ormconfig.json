@@ -6,6 +6,7 @@
     "password": "12345678",
     "database": "todo",
     "migrations":["./src/database/migrations/**.ts"],
+    "entities":["./src/http/models/**.ts"],
     "cli" : {
         "migrationsDir": "./src/database/migrations"
     }
