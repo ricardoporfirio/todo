@@ -1,5 +1,6 @@
 import { Request,Response } from "express";
 import { getRepository } from "typeorm";
+import bcryptjs from "bcryptjs"
 import { User } from "../../models/User";
 import { Action } from "./Action";
 
@@ -11,7 +12,14 @@ class Create implements Action{
 
         // Add validations
 
-        const user = userRepository.create({name,email,password});
+        const salt = bcryptjs.genSaltSync(10);
+        const hash = bcryptjs.hashSync(password,salt);
+
+        const user = userRepository.create({
+            name,
+            email,
+            password:hash
+        });
 
         await userRepository.save(user);
 
